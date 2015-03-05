@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<caelum:livro xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:caelum="http://www.caelum.com.br/fj36">
+	<caelum:categoria>
+		<caelum:nome>TI</caelum:nome>
+	</caelum:categoria>
+	<caelum:codigo>ARQ</caelum:codigo>
+	<caelum:nomeAutor>Paulo Silveira</caelum:nomeAutor>
+	<caelum:titulo>Arquitetura Java</caelum:titulo>
+	<caelum:valor>29.9</caelum:valor>
+</caelum:livro>

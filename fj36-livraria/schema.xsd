@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema elementFormDefault="qualified" version="1.0" targetNamespace="http://www.caelum.com.br/fj36" xmlns:caelum="http://www.caelum.com.br/fj36" xmlns:tns="http://www.caelum.com.br/fj36" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="pedido" type="tns:pedido"/>
+
+  <xs:complexType name="pedido">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" minOccurs="0"/>
+      <xs:element name="data" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="itens" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="item" type="tns:itemCompra" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="pagamento" type="tns:pagamento" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="itemCompra">
+    <xs:sequence>
+      <xs:element name="formato" type="tns:formato" minOccurs="0"/>
+      <xs:element name="quantidade" type="xs:int" minOccurs="0"/>
+      <xs:element name="livro" type="tns:livro" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="livro">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:string" minOccurs="0"/>
+      <xs:element name="titulo" type="xs:string" minOccurs="0"/>
+      <xs:element name="tituloCurto" type="xs:string" minOccurs="0"/>
+      <xs:element name="nomeAutor" type="xs:string" minOccurs="0"/>
+      <xs:element name="valorEbook" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="valorImpresso" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pagamento">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int" minOccurs="0"/>
+      <xs:element name="status" type="xs:string" minOccurs="0"/>
+      <xs:element name="valor" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="links" type="tns:link" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="link">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:simpleType name="formato">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EBOOK"/>
+      <xs:enumeration value="IMPRESSO"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+
